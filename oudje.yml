@@ -1,0 +1,9 @@
+---
+- hosts: oudje
+
+  vars:
+    ansible_become_method: doas
+    ansible_become_user: root
+
+  tasks:
+    - include: openbsd/packages.yml
