@@ -20,3 +20,9 @@ ansible all -m ping
 ````
 ansible-playbook [PLAYBOOK_YML]
 ````
+
+### Execution with sudo password
+
+````
+ansible-playbook [PLAYBOOK_YML] --ask-become-pass
+````
