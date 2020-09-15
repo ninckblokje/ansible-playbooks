@@ -1,0 +1,15 @@
+---
+- name: Check if sdkman is installed
+  shell: test -d {{ansible_env.HOME}}/.sdkman && echo "yes" || echo "no"
+  register: is_sdkman_installed
+
+- name: Download sdkman
+  when: is_sdkman_installed.stdout == "no"
+  get_url:
+    url: https://get.sdkman.io
+    dest: "/tmp/sdkman.sh"
+    force: true
+
+- name: Install sdkman
+  when: is_sdkman_installed.stdout == "no"
+  shell: "bash /tmp/sdkman.sh"

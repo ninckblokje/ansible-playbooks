@@ -9,9 +9,13 @@
   pre_tasks:
     - name: Update repositories
       become: yes
-      apt: update_cache=yes
-      changed_when: False
+      apt: update_cache=yes force_apt_get=yes
+    - name: Update packages
+      become: yes
+      apt: upgrade=dist force_apt_get=yes
       
   tasks:
     - include: wsl2/packages.yml
     - include: wsl2/keys.yml
+    - include: ubuntu/docker.yml
+    - include: generic/sdkman.yml

@@ -6,4 +6,5 @@
     ssh_key_type: rsa
     ssh_key_bits: 4096
     ssh_key_passphrase: "{{ssh_passphrase}}"
+    ssh_key_comment: "{{ansible_user}}@{{ansible_hostname}}"
     force: no

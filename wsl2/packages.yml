@@ -3,4 +3,11 @@
   become: yes
   apt:
     name:
+      - apt-transport-https
+      - ca-certificates
+      - curl
       - git
+      - gnupg2
+      - software-properties-common
+      - unzip
+      - zip
